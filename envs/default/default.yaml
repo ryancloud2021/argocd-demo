@@ -13,7 +13,7 @@ spec:
       recurse: true
     path: envs/default
     targetRevision: main
-    repoURL: https://github.com/ryancloud2021/argocd-demo
+    repoURL: https://github.com/ryancloud2021/argocd-demo.git
   syncPolicy:
     automated:
       prune: true
