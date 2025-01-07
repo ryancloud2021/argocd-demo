@@ -11,7 +11,7 @@ spec:
   source:
     directory:
       recurse: true
-    path: kustomiza-demo
+    path: kustomize-demo
     targetRevision: main
     repoURL: https://github.com/ryancloud2021/argocd-demo.git
   syncPolicy:
