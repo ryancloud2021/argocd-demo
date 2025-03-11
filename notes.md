@@ -178,3 +178,15 @@ Go to Settings > Repositories > Connect Repo
 - Verify the connection status. 
 
 You should see `successful` in the connection status.
+
+## Deploying Our First Application
+
+- Apply `basic-application.yaml` manifest:
+
+```shell
+kubectl apply -f argocd/applications/basic-application.yaml
+```
+
+Now check the ArgoCD UI - you should see your application being synchronized with the Git repository. ArgoCD will create the necessary resources in your cluster based on the Kubernetes manifests in the specified Git repository path.
+
+![deployment](<Screenshot from 2025-03-11 16-45-05.png>)
