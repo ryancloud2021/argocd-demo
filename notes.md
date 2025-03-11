@@ -214,3 +214,18 @@ The repository has a Kustomize setup with:
 
 - **overlays/prod/:** Contains production-specific configuration (3 replicas)
 
+### Deploying the Development Environment
+
+Modify the repoURL for the Application inside argocd/applications/kustomize-application.yaml and apply.  
+In the ArgoCD UI, you'll see that this application is deployed with the dev- prefix and just 1 replica, as specified in the dev overlay.
+
+![dev](<Screenshot from 2025-03-11 18-32-54.png>)
+
+### Deploying the Production Environment
+
+Now let's create another Application resource for our production environment. Call the file: kustomize-prod-application.yaml  
+
+![prod](<Screenshot from 2025-03-11 18-34-58.png>)
+
+Now you have both dev and prod versions of your application running simultaneously in the same namespace, with different configurations managed through Kustomize overlays.
+
