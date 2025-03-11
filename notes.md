@@ -197,3 +197,4 @@ Scale up replicaset of `grade-submission-api-deployment.yaml` deployment from 3 
 
 Argo CD, by default, checks for Git changes and performs automated syncs every 3 minutes (180 seconds), but this interval can be customized by adjusting the timeout.reconciliation value in the argocd-cm ConfigMap.
 
+- Scale down deployment
