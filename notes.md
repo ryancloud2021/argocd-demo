@@ -126,3 +126,55 @@ Let's break down this configuration:
 **automated.selfHeal:** Automatically fix drift between the desired state in Git and the actual state in the cluster  
 **syncOptions.CreateNamespace:** Create the target namespace if it doesn't exist  
 
+## Add a Repository in Argo CD
+
+- Generate RSA keys
+
+```shell
+> pwd
+/home/antony/argocd/sshkeys/dev
+> ssh-keygen -t rsa -b 4096 -f /home/antony/argocd/sshkeys/dev/id_rsa
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/antony/argocd/sshkeys/dev/id_rsa
+Your public key has been saved in /home/antony/argocd/sshkeys/dev/id_rsa.pub
+The key fingerprint is:
+SHA256:Y2tfjYGQiVQGiNmOGmEWoJDIcnRJmR4jhKKn+FM3npU antony@antony-Latitude-7480
+The key's randomart image is:
++---[RSA 4096]----+
+|**+=o=ooo        |
+|X+=.O. o o       |
+|Bo = o. +        |
+|o o o    . .     |
+|.=      S.. .    |
+|+   . o.Eo   +   |
+| . . o +o   o .  |
+|  o   o. . .     |
+|   .      .      |
++----[SHA256]-----+
+```
+
+- Adding a new SSH key to your GitHub account
+
+1. In the upper-right corner of any page on GitHub, click your profile photo, then click  **Settings**.  
+2. In the "Access" section of the sidebar, click **SSH and GPG keys**.  
+3. Click **New SSH key** or **Add SSH key**.  
+4. In the "Title" field, add a descriptive label for the new key.  
+5. In the "Key" field, paste your `public key`.
+
+- Add repository in argo CD
+
+Go to Settings > Repositories > Connect Repo
+
+| Field                | Description                                      |
+|----------------------|--------------------------------------------------|
+| Name                 | The name of the repository connection            |
+| Project              | The ArgoCD project to associate with the repo    |
+| Repository URL       | The URL of the Git repository                    |
+| SSH Private key data | The private key for SSH authentication           |
+
+
+- Verify the connection status. 
+
+You should see `successful` in the connection status.
