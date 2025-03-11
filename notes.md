@@ -126,7 +126,7 @@ Let's break down this configuration:
 **automated.selfHeal:** Automatically fix drift between the desired state in Git and the actual state in the cluster  
 **syncOptions.CreateNamespace:** Create the target namespace if it doesn't exist  
 
-## Add a Repository in Argo CD
+### Add a Repository in Argo CD
 
 - Generate RSA keys
 
@@ -179,7 +179,7 @@ Go to Settings > Repositories > Connect Repo
 
 You should see `successful` in the connection status.
 
-## Deploying Our First Application
+### Deploying Our First Application
 
 - Apply `basic-application.yaml` manifest:
 
@@ -198,3 +198,19 @@ Scale up replicaset of `grade-submission-api-deployment.yaml` deployment from 3 
 Argo CD, by default, checks for Git changes and performs automated syncs every 3 minutes (180 seconds), but this interval can be customized by adjusting the timeout.reconciliation value in the argocd-cm ConfigMap.
 
 - Scale down deployment
+
+## Approach 2: Environment Management with Kustomize
+
+As your application grows, you'll typically need different configurations for different environments (development, staging, production).  
+Kustomize helps solve this problem by allowing you to maintain a base configuration and create overlays for environment-specific changes.  
+
+**Understanding Kustomize Structure**
+
+The repository has a Kustomize setup with:
+
+- **base/:** Contains the base resources (deployment, service)
+
+- **overlays/dev/:** Contains development-specific configuration (1 replica)
+
+- **overlays/prod/:** Contains production-specific configuration (3 replicas)
+
