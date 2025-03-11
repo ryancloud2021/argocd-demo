@@ -113,26 +113,15 @@ spec:
 
 Let's break down this configuration:
 
-name: The name of our application
-
-source: Defines where ArgoCD should look for our application manifests
-
-repoURL: The GitHub repository URL
-
-targetRevision: The Git revision to track (HEAD for the latest commit on the default branch)
-
-path: The path within the repository where our Kubernetes manifests are located
-
-destination: Defines where the application should be deployed
-
-server: The Kubernetes API server (in this case, the same cluster where ArgoCD is installed)
-
-namespace: The target namespace for our application
-
-syncPolicy: Defines how ArgoCD should sync the application
-
-automated.prune: Automatically delete resources that were removed from Git
-
-automated.selfHeal: Automatically fix drift between the desired state in Git and the actual state in the cluster
-
-syncOptions.CreateNamespace: Create the target namespace if it doesn't exist
+**name:** The name of our application
+**source:** Defines where ArgoCD should look for our application manifests
+**repoURL:** The GitHub repository URL
+**targetRevision:** The Git revision to track (HEAD for the latest commit on the default branch)
+**path:** The path within the repository where our Kubernetes manifests are located
+**destination:** Defines where the application should be deployed
+**server:** The Kubernetes API server (in this case, the same cluster where ArgoCD is installed)
+**namespace:** The target namespace for our application
+**syncPolicy:** Defines how ArgoCD should sync the application
+**automated.prune:** Automatically delete resources that were removed from Git
+**automated.selfHeal:** Automatically fix drift between the desired state in Git and the actual state in the cluster
+**syncOptions.CreateNamespace:** Create the target namespace if it doesn't exist
