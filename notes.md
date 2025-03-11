@@ -190,3 +190,8 @@ kubectl apply -f argocd/applications/basic-application.yaml
 Now check the ArgoCD UI - you should see your application being synchronized with the Git repository. ArgoCD will create the necessary resources in your cluster based on the Kubernetes manifests in the specified Git repository path.
 
 ![deployment](<Screenshot from 2025-03-11 16-45-05.png>)
+
+- Scale up `grade-submission-api-deployment.yaml` 
+
+Scale up replicaset of `grade-submission-api-deployment.yaml` deployment from 3 to 5.  
+
